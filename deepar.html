@@ -72,7 +72,7 @@
         const dpr = window.devicePixelRatio || 1;
         canvas.width = Math.floor(canvas.clientWidth * dpr);
         canvas.height = Math.floor(canvas.clientHeight * dpr);
-
+        console.log(effects[currentIndex].effect);
         deepAR = await deepar.initialize({
           licenseKey:
             "ce036f51766b00e5e92d6ce685e652ed9aba1f244cc9a500294f72f366f929a637eefa7fc2effa6a",
