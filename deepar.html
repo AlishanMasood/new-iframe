@@ -70,7 +70,7 @@
       async function updateValues(currentIndex, newValue) {
         if (currentIndex !== newValue) {
           deepAR.clearEffect();
-          await deepAR.switchEffect(effects[currentIndex].effect);
+          await deepAR.switchEffect(effects[newValue].effect);
           currentIndex++;
           console.log("if", newValue, currentIndex);
         } else {
