@@ -4,14 +4,24 @@
     <title>DeepAR from a CDN</title>
     <!-- Load deepar.js -->
     <script src="https://cdn.jsdelivr.net/npm/deepar/js/deepar.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
   </head>
 
   <body style="height: 100vh; width: 100vw; margin: 0; overflow: hidden">
     <!-- Canvas element for AR preview -->
-    <div>
-      <button id="backwardBtn">Backward</button>
+    <div class="d-grid gap-2 d-md-block">
+      <button class="btn btn-primary" type="button" id="backwardBtn">
+        Back
+      </button>
       <input placeholder="Enter the Product name" id="productName" />
-      <button id="forwardBtn">Forward</button>
+      <button class="btn btn-primary" type="button" id="forwardBtn">
+        Next
+      </button>
     </div>
     <canvas
       style="max-width: 100%; max-height: 100%; width: 100%; height: 100%"
