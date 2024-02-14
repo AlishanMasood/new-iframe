@@ -14,7 +14,13 @@
     ></canvas>
     <!-- Initialize DeepAR and load AR effect/filter -->
     <script>
-      (async function () {
+      let effects = [
+        {
+          id: "1",
+          effect: "https://cdn.jsdelivr.net/npm/deepar/effects/aviators",
+          product_name: "aa",
+        },
+      ](async function () {
         const canvas = document.getElementById("deepar-canvas");
         const dpr = window.devicePixelRatio || 1;
         canvas.width = Math.floor(canvas.clientWidth * dpr);
@@ -24,7 +30,7 @@
           licenseKey:
             "ce036f51766b00e5e92d6ce685e652ed9aba1f244cc9a500294f72f366f929a637eefa7fc2effa6a",
           canvas: document.getElementById("deepar-canvas"),
-          effect: "https://cdn.jsdelivr.net/npm/deepar/effects/aviators",
+          effect: effects[0].effect,
         });
       })();
     </script>
