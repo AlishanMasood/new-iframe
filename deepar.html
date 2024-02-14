@@ -10,6 +10,7 @@
     <!-- Canvas element for AR preview -->
     <div>
       <button id="backwardBtn">Backward</button>
+      <input placeholder="Enter the Product name" id="productName" />
       <button id="forwardBtn">Forward</button>
     </div>
     <canvas
@@ -46,7 +47,11 @@
       var deepAR;
 
       const forwardBtn = document.getElementById("forwardBtn");
+      const productName = document.getElementById("productName");
       const backwardBtn = document.getElementById("backwardBtn");
+      productName.addEventListener("onchange", (e) => {
+        console.log(e.target.value);
+      });
 
       forwardBtn.addEventListener("click", () => {
         if (currentIndex < effects.length - 1) {
