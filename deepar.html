@@ -54,6 +54,7 @@
           updateValues(currentIndex);
           console.log("Forward Index:", currentIndex);
         } else {
+          currentIndex = 0;
           updateValues(currentIndex);
           console.log("Forward Index:", currentIndex);
         }
@@ -65,6 +66,8 @@
           currentIndex = currentIndex - 1;
           updateValues(currentIndex);
           console.log("Backward Index:", currentIndex);
+        } else {
+          currentIndex = effects.length - 1;
         }
         // You can perform actions here based on the currentIndex
       });
