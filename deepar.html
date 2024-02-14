@@ -49,16 +49,16 @@
       const backwardBtn = document.getElementById("backwardBtn");
 
       forwardBtn.addEventListener("click", () => {
-        let newValue = currentIndex + 1;
-        currentIndex++;
-        updateValues(currentIndex, newValue);
+        currentIndex = currentIndex + 1;
+        updateValues(currentIndex);
         console.log("Forward Index:", currentIndex);
         // You can perform actions here based on the currentIndex
       });
 
       backwardBtn.addEventListener("click", () => {
-        currentIndex = currentIndex - 1;
-
+        if (currentIndex > 0) {
+          currentIndex = currentIndex - 1;
+        }
         updateValues();
         console.log("Backward Index:", currentIndex);
         // You can perform actions here based on the currentIndex
@@ -68,15 +68,9 @@
 
       // Remove the current filter.
 
-      async function updateValues(currentIndex, newValue) {
+      async function updateValues(currentIndex) {
         await deepAR.switchEffect(effects[currentIndex].effect);
-        if (currentIndex !== newValue) {
-          deepAR.clearEffect();
-          currentIndex++;
-          console.log("if", newValue, currentIndex);
-        } else {
-          console.log("else", newValue, currentIndex);
-        }
+        deepAR.clearEffect();
       }
       (async function () {
         const canvas = document.getElementById("deepar-canvas");
