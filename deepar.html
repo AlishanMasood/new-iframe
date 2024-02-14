@@ -50,6 +50,7 @@
 
       forwardBtn.addEventListener("click", () => {
         let newValue = currentIndex + 1;
+        currentIndex++;
         updateValues(currentIndex, newValue);
         console.log("Forward Index:", currentIndex);
         // You can perform actions here based on the currentIndex
@@ -68,9 +69,9 @@
       // Remove the current filter.
 
       async function updateValues(currentIndex, newValue) {
+        await deepAR.switchEffect(effects[currentIndex].effect);
         if (currentIndex !== newValue) {
           deepAR.clearEffect();
-          await deepAR.switchEffect(effects[newValue].effect);
           currentIndex++;
           console.log("if", newValue, currentIndex);
         } else {
