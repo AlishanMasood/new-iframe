@@ -53,6 +53,9 @@
           currentIndex = currentIndex + 1;
           updateValues(currentIndex);
           console.log("Forward Index:", currentIndex);
+        } else {
+          updateValues(currentIndex);
+          console.log("Forward Index:", currentIndex);
         }
         // You can perform actions here based on the currentIndex
       });
@@ -60,9 +63,9 @@
       backwardBtn.addEventListener("click", () => {
         if (currentIndex > 0) {
           currentIndex = currentIndex - 1;
+          updateValues(currentIndex);
+          console.log("Backward Index:", currentIndex);
         }
-        updateValues();
-        console.log("Backward Index:", currentIndex);
         // You can perform actions here based on the currentIndex
       });
 
