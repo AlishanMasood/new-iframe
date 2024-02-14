@@ -50,6 +50,7 @@
 
       forwardBtn.addEventListener("click", () => {
         let newValue = currentIndex + 1;
+        DeepAR.shutdown();
         updateValues(currentIndex, newValue);
         console.log("Forward Index:", currentIndex);
         // You can perform actions here based on the currentIndex
