@@ -49,14 +49,18 @@
       const backwardBtn = document.getElementById("backwardBtn");
 
       forwardBtn.addEventListener("click", () => {
-        if (currentIndex) currentIndex = (currentIndex + 1) % effects.length;
-        updateValues(currentIndex);
-        console.log("Forward Index:", currentIndex);
+        if (currentIndex < effects.length - 1) {
+          currentIndex = currentIndex + 1;
+          updateValues(currentIndex);
+          console.log("Forward Index:", currentIndex);
+        }
         // You can perform actions here based on the currentIndex
       });
 
       backwardBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + effects.length) % effects.length;
+        if (currentIndex > 0) {
+          currentIndex = currentIndex - 1;
+        }
         updateValues();
         console.log("Backward Index:", currentIndex);
         // You can perform actions here based on the currentIndex
