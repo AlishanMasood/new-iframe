@@ -43,38 +43,51 @@
         },
       ];
       var currentIndex = 0;
+      var deepAR;
 
       const forwardBtn = document.getElementById("forwardBtn");
       const backwardBtn = document.getElementById("backwardBtn");
 
       forwardBtn.addEventListener("click", () => {
-        currentIndex = currentIndex + 1;
-        deepAR.shutdown();
-        updateValues();
+        let newValue = currentIndex + 1;
+        updateValues(currentIndex, newValue);
         console.log("Forward Index:", currentIndex);
         // You can perform actions here based on the currentIndex
       });
 
       backwardBtn.addEventListener("click", () => {
         currentIndex = currentIndex - 1;
-        deepAR.shutdown();
+
         updateValues();
         console.log("Backward Index:", currentIndex);
         // You can perform actions here based on the currentIndex
       });
 
-      async function updateValues() {
+      // Switch filter 1.
+
+      // Remove the current filter.
+
+      async function updateValues(currentIndex, newValue) {
         const canvas = document.getElementById("deepar-canvas");
         const dpr = window.devicePixelRatio || 1;
         canvas.width = Math.floor(canvas.clientWidth * dpr);
         canvas.height = Math.floor(canvas.clientHeight * dpr);
 
-        const deepAR = await deepar.initialize({
+        deepAR = await deepar.initialize({
           licenseKey:
             "ce036f51766b00e5e92d6ce685e652ed9aba1f244cc9a500294f72f366f929a637eefa7fc2effa6a",
           canvas: document.getElementById("deepar-canvas"),
           effect: effects[currentIndex].effect,
         });
+
+        if (currentIndex !== newValue) {
+          deepAR.clearEffect();
+          await deepAR.switchEffect(effects[currentIndex].effect);
+          currentIndex++;
+          console.log("if", newValue, currentIndex);
+        } else {
+          console.log("else", newValue, currentIndex);
+        }
       }
       (async function () {
         await updateValues();
