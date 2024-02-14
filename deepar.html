@@ -74,7 +74,6 @@
       // Remove the current filter.
 
       async function updateValues(currentIndex) {
-        deepAR.clearEffect();
         await deepAR.switchEffect(effects[currentIndex].effect);
       }
       (async function () {
