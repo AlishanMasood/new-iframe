@@ -49,16 +49,19 @@
 
       forwardBtn.addEventListener("click", () => {
         currentIndex = currentIndex + 1;
+        updateValues();
         console.log("Forward Index:", currentIndex);
         // You can perform actions here based on the currentIndex
       });
 
       backwardBtn.addEventListener("click", () => {
         currentIndex = currentIndex - 1;
+        updateValues();
         console.log("Backward Index:", currentIndex);
         // You can perform actions here based on the currentIndex
       });
-      (async function () {
+
+      async function updateValues() {
         const canvas = document.getElementById("deepar-canvas");
         const dpr = window.devicePixelRatio || 1;
         canvas.width = Math.floor(canvas.clientWidth * dpr);
@@ -70,6 +73,9 @@
           canvas: document.getElementById("deepar-canvas"),
           effect: effects[currentIndex].effect,
         });
+      }
+      (async function () {
+        await updateValues();
       })();
       console.log("effects current index", effects[currentIndex]);
     </script>
