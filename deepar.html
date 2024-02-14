@@ -20,7 +20,8 @@
           effect: "https://cdn.jsdelivr.net/npm/deepar/effects/aviators",
           product_name: "aa",
         },
-      ](async function () {
+      ];
+      (async function () {
         const canvas = document.getElementById("deepar-canvas");
         const dpr = window.devicePixelRatio || 1;
         canvas.width = Math.floor(canvas.clientWidth * dpr);
@@ -33,6 +34,7 @@
           effect: effects[0].effect,
         });
       })();
+      console.log(effects);
     </script>
   </body>
 </html>
