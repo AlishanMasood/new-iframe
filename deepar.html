@@ -25,22 +25,22 @@
         {
           id: "1",
           effect: "https://cdn.jsdelivr.net/npm/deepar/effects/aviators",
-          product_name: "aa",
+          product_name: "a",
         },
         {
           id: "2",
           effect: "./effects/sunglas.deepar",
-          product_name: "aa",
+          product_name: "b",
         },
         {
           id: "3",
           effect: "./effects/Red-Glass-Frame-with-Black-Metal.deepar",
-          product_name: "aa",
+          product_name: "c",
         },
         {
           id: "4",
           effect: "./effects/handleless-Red-Glass.deepar",
-          product_name: "aa",
+          product_name: "d",
         },
       ];
       var currentIndex = 0;
@@ -50,7 +50,17 @@
       const productName = document.getElementById("productName");
       const backwardBtn = document.getElementById("backwardBtn");
       productName.addEventListener("change", (e) => {
-        console.log(e.target.value);
+        const searchTerm = e.target.value.toLowerCase();
+        const filteredIndex = effects.findIndex(
+          (effect) => effect.product_name.toLowerCase() === searchTerm
+        );
+        if (filteredIndex !== -1) {
+          currentIndex = filteredIndex;
+          updateValues(currentIndex);
+          console.log("Index for Product Name:", currentIndex);
+        } else {
+          console.log("Product not found.");
+        }
       });
 
       forwardBtn.addEventListener("click", () => {
